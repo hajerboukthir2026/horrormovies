@@ -1,16 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function MovieCard({ titre, description, posterURL, note }) {
+function MovieCard({ id, titre, description, posterURL, note }) {
+  const navigate = useNavigate();
+
   return (
-    <div style={{
-      width: '220px',
-      backgroundColor: '#1a1a1a',
-      borderRadius: '10px',
-      overflow: 'hidden',
-      boxShadow: '0 0 15px rgba(255,0,0,0.2)',
-      transition: 'transform 0.3s',
-      cursor: 'pointer',
-    }}
+    <div
+      onClick={() => navigate(`/movie/${id}`)}
+      style={{
+        width: '220px',
+        backgroundColor: '#1a1a1a',
+        borderRadius: '10px',
+        overflow: 'hidden',
+        boxShadow: '0 0 15px rgba(255,0,0,0.2)',
+        transition: 'transform 0.3s',
+        cursor: 'pointer',
+      }}
       onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
       onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
     >
